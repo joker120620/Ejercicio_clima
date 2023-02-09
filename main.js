@@ -270,7 +270,7 @@ function mostrarRes(temp,min,max,senTerm,humedad, ciudad, est_temp, des_temp, ic
 }
 async function traer(city){
     const apiId = '41d1d7f5c2475b3a16167b30bc4f265c';
-    let res=  await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiId}`)
+    let res=  await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiId}`)
     res = await res.json();
     if (city!=="") {
       if(res.cod==404){
@@ -284,7 +284,7 @@ async function traer(city){
       temp = convGrados(temp);
       let est_temp=res.weather[0].main
       let des_temp=res.weather[0].description;
-      const icon = `http://openweathermap.org/img/wn/${res.weather[0].icon}.png`;
+      const icon = `https://openweathermap.org/img/wn/${res.weather[0].icon}.png`;
       let temp_min = convGrados(res.main.temp_min);
       let temp_max = convGrados(res.main.temp_max);
       let senTerm = convGrados(res.main.feels_like);
